@@ -9,6 +9,9 @@ export default class Header extends React.Component {
         return (
             <View style={styles.Header}>
                 <Text style={styles.title}> To-Do List</Text>
+                <TouchableOpacity>
+                    <Text>Add</Text>
+                </TouchableOpacity>
             </View>
         )
     }

@@ -1,8 +1,6 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
-import { observer } from 'mobx-react'
 
-@observer
 export default class Input extends React.Component {
     constructor() {
         super();
@@ -11,18 +9,16 @@ export default class Input extends React.Component {
     }
 
     onSubmitEditing() {
-        //let tmpList = this.props.todoStore.list;
-        //this.props.onSubmitEditing(this.state.text);
-        //this.props.todoStore.list = [this.state.text, ...this.props.todoStore.list];
-        this.props.todoStore.addTodo();
-        this.props.todoStore.text = '';
+        this.setState({ text: '' });
+        this.props.onSubmitEditing(this.state.text);
+        
     }
 
     render() {
         return (
-            <TextInput style={styles.input} value={this.props.todoStore.text}
+            <TextInput style={styles.input} value={this.state.text}
                 placeholder='พิมพ์สิ่งที่ต้องการทำ จากนั้น กด Enter'
-                onChangeText={(text) => this.props.todoStore.text = text}
+                onChangeText={(text) => this.setState({ text: text })}
                 returnKeyType={'send'} returnKeyLabel={'go'}
                 onSubmitEditing={this.onSubmitEditing}
             />
