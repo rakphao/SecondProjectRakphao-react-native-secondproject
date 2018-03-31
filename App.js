@@ -15,16 +15,15 @@ export default class App extends React.Component {
   }
 
   removeTodo(index) {
-    let tmpList = [...this.state.list];
-    tmpList = tmpList.filter((tmp, i) => i != index);
+    //let tmpList = [...this.state.list];
+    //tmpList = tmpList.filter((tmp, i) => i != index);
+    let tmpList = this.state.list.filter((tmp, i) => i != index);
     this.setState({ list: tmpList });
+    //this.state.list = tmpList;
   }
 
   addToDo(text) {
-    //this.setState({ text: '' });
-    let tmpList = [...this.state.list];
-    tmpList.push(text);
-    this.setState({ list: tmpList });
+    this.setState({ list: [text, ...this.state.list] });
   }
 
   render() {
