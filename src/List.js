@@ -11,15 +11,20 @@ export default class List extends React.Component {
     }
 
     removeTodo(index){
+        this.props.onPressItem(index);
+
+/*
         let tmpList = [...this.state.list];
         tmpList = tmpList.filter((tmp,i)=>i!=index);
         this.setState({list:tmpList});
+
+        */
     }
 
     render() {
         return (
             <View>
-                {this.state.list.map(
+                {this.props.list.map(
                     (text, i) => {
                         return (
                                 <TouchableOpacity key={i} style={styles.List} onPress={()=>this.removeTodo(i)} >
