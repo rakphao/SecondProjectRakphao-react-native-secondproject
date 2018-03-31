@@ -10,6 +10,8 @@ export default class Input extends React.Component {
 
     onSubmitEditing() {
         this.setState({ text: '' });
+        this.props.onSubmitEditing(this.state.text);
+        
     }
 
     render() {

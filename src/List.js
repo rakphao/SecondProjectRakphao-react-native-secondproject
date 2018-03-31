@@ -5,7 +5,7 @@ export default class List extends React.Component {
 
     constructor() {
         super();
-        this.state = { list: ['click to remove', 'to do 2', 'to do 3', 'to do 4'] }
+     //   this.state = { list: ['click to remove', 'to do 2', 'to do 3', 'to do 4'] }
         //this.onSubmitEditing = this.onSubmitEditing.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
     }

@@ -11,6 +11,7 @@ export default class App extends React.Component {
     super();
     this.state = { list: ['click to remove', 'to do 2', 'to do 3', 'to do 4'] }
     this.removeTodo = this.removeTodo.bind(this);
+    this.addToDo = this.addToDo.bind(this);
   }
 
   removeTodo(index) {
@@ -19,11 +20,18 @@ export default class App extends React.Component {
     this.setState({ list: tmpList });
   }
 
+  addToDo(text) {
+    //this.setState({ text: '' });
+    let tmpList = [...this.state.list];
+    tmpList.push(text);
+    this.setState({ list: tmpList });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Header />
-        <Input />
+        <Input onSubmitEditing={this.addToDo} />
         <List list={this.state.list} onPressItem={this.removeTodo} />
       </View>
     );
